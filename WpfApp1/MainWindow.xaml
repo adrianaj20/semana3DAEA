@@ -7,6 +7,73 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <DataGrid Height="250" Width="730" HorizontalAlignment="Left" Margin="12,21,0,0" 
+          Name="McDataGrid" VerticalAlignment="Top" RowHeight="30" ColumnWidth="100" 
+                  ColumnHeaderHeight="100" HeadersVisibility="Column"
+                  Background="LightGray" RowBackground="LightYellow" 
+                    AlternatingRowBackground="LightBlue"
+                  BorderBrush="Gray" BorderThickness="5" AutoGenerateColumns="False"
+                  >
+            <DataGrid.Columns>
 
+                <DataGridTextColumn 
+                Header="Nombres"
+                Width="220"
+                Binding="{Binding Nombres}" >
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="TextWrapping" Value="Wrap"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                    <DataGridTextColumn.EditingElementStyle>
+                        <Style TargetType="TextBox">
+                            <Setter Property="Foreground" Value="Blue"/>
+                        </Style>
+                    </DataGridTextColumn.EditingElementStyle>
+                </DataGridTextColumn>
+
+
+                <DataGridTextColumn 
+                Header="Book Title"
+                Width="220"
+                Binding="{Binding Apellidos}" >
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="TextWrapping" Value="Wrap"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                    <DataGridTextColumn.EditingElementStyle>
+                        <Style TargetType="TextBox">
+                            <Setter Property="Foreground" Value="Blue"/>
+                        </Style>
+                    </DataGridTextColumn.EditingElementStyle>
+                </DataGridTextColumn>
+
+
+                <DataGridCheckBoxColumn 
+          Header="MVP" 
+          Width="50"
+          Binding="{Binding IsMVP}"
+          IsThreeState="True" />
+
+                <DataGridTemplateColumn Header="DOB">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding DOB}" Margin="4"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                    <DataGridTemplateColumn.CellEditingTemplate>
+                        <DataTemplate>
+                            <DatePicker SelectedDate="{Binding DOB, Mode=TwoWay}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellEditingTemplate>
+                </DataGridTemplateColumn>
+
+            </DataGrid.Columns>
+
+
+        </DataGrid>
+        <Button Content="Change Row Color" Height="23" HorizontalAlignment="Left" Margin="12,277,0,0"
+                Name="RowColorButton" VerticalAlignment="Top" Width="116" Click="RowColorButton_Click" />
     </Grid>
 </Window>
